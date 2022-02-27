@@ -1,0 +1,16 @@
+# Copy from https://github.com/huggingface/pytorch-transformers
+
+torch==1.9.1
+tqdm
+requests
+wandb==0.12.6
+opencv-python
+Levenshtein
+allennlp==2.7.0
+pytorch-lightning==1.4.9
+
+# detectron2
+git+https://github.com/facebookresearch/detectron2.git
+
+# always install transformers at the end, since allennlp has wrong requirements and messes up pip
+transformers==4.10

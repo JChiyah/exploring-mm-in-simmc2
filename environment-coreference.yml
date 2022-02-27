@@ -1,0 +1,5 @@
+name: simmc2-lxmert
+channels:
+  - defaults
+dependencies:
+  - python=3.6

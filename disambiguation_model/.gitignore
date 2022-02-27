@@ -1,0 +1,5 @@
+*pyc
+data/
+*.ipynb_checkpoints
+runs/
+eval_result.json

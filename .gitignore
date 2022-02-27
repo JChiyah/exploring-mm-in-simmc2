@@ -1,0 +1,34 @@
+build/
+devel/
+
+.ven*
+.pyc
+.cache
+*_pycache_*
+
+# data
+data/
+
+# models
+models/*_output
+models/gn.vec.300.bin
+models/**/results.cvs
+
+# simmc2 original
+simmc2/
+
+tests_scripts/
+
+# simmc2_data_generated
+simmc2_data_generated/images
+simmc2_data_generated/image_features
+
+# detectron
+detectron/coco_eval
+detectron/output*
+
+# submission
+submission/
+
+# analysis
+analysis_results.json
