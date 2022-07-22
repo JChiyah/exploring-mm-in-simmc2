@@ -40,10 +40,11 @@ Evaluation results from fine-tuning the model for 5 epochs and evaluating the be
 
 ```shell
 # 1. Create conda environment & activate
-conda env create -f environment-disambiguation.yml && conda activate simmc2-disambiguation
+conda env create -f environment-disambiguation.yml && conda activate simmc2-disam
 
 # 2. Install packages
-pip install -r disambiguation-model/requirements.txt
+pip install -r requirements.txt
+pip install -r disambiguation_model/requirements.txt
 
 # 3. Generate data for this model
 python generate_simmc2_data.py --subtask disambiguation --output_data_folder_path simmc2_data_generated
@@ -106,13 +107,15 @@ Requisites: run the `generate_simmc2_data.py` script for the data and extract th
 
 ```shell
 # 1. Create conda environment & activate
-conda env create -f environment-coreference.yml && conda activate simmc2-coreference && cd coreference_model
+conda env create -f environment-coreference.yml && conda activate simmc2-coref && cd coreference_model
 
 # 2. Install packages
-pip install -r requirements.txt
+pip install torch==1.9.1 && pip install -r requirements.txt
 
 # 3. Check that it can train with a small data size
 WANDB_MODE=disabled bash run/simmc2_coreference_finetune.bash 0 lxr533 4 "user_utterance image named_entities dialogue_history object_index previous_objects" 1 5 all_gt_boxes "--llayers 5 --xlayers 3 --rlayers 3 --tiny"
+# updated version
+WANDB_MODE=disabled bash run/simmc2_coreference_finetune.bash 0,1,2,3 4 "previous_object_turns='all'" 5 train "--tiny"
 
 # 4. Train model
 WANDB_MODE=disabled bash run/simmc2_coreference_finetune.bash 0 lxr533 4 "user_utterance image named_entities dialogue_history object_index previous_objects" 1 5 all_gt_boxes "--llayers 5 --xlayers 3 --rlayers 3"

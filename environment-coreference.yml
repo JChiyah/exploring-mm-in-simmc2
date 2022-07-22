@@ -1,4 +1,4 @@
-name: simmc2-lxmert
+name: simmc2-coref
 channels:
   - defaults
 dependencies:

@@ -1,4 +1,4 @@
-# Copy from https://github.com/huggingface/pytorch-transformers
+# Last changes made on 2022-06-20 to make it work in Conda simmc2-coref env
 
 torch==1.9.1
 tqdm
@@ -7,10 +7,18 @@ wandb==0.12.6
 opencv-python
 Levenshtein
 allennlp==2.7.0
-pytorch-lightning==1.4.9
+pytorch-lightning==1.5.10   # 1.4.9
 
 # detectron2
-git+https://github.com/facebookresearch/detectron2.git
+python -m pip install detectron2==0.5 -f \
+  https://dl.fbaipublicfiles.com/detectron2/wheels/cu102/torch1.9/index.html
+# try manually installing if pip install -r requirements.txt does not work:
+# https://github.com/facebookresearch/detectron2/releases/tag/v0.5
+# pip install git+https://github.com/facebookresearch/detectron2.git@v0.5
+
 
 # always install transformers at the end, since allennlp has wrong requirements and messes up pip
-transformers==4.10
+transformers==4.18.0    # 4.1
+# make sure it is 4.18.0 as that seems to solve the issues with allennlp AND a deepseed error
+
+pubd

@@ -1,4 +1,4 @@
-name: simmc2-disambiguation
+name: simmc2-disam
 channels:
   - defaults
 dependencies:
